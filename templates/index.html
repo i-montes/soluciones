@@ -1,0 +1,52 @@
+{% extends 'layout.html'%}
+
+{% block Body%}
+
+<div class="contanier">
+    <form action="/datos" method="POST">
+        <div class="form-group row">    
+            <div class="col-md-3"></div>       
+            <input class="col-sm-5" type="text input-lg" name="Consulta" placeholder="Consultar"/>
+            <button  type="submit" class="btn btn-primary" >consultar</button>
+        </div>
+    <br>
+</div>
+    
+<div class="contanier">
+        <div class="table" >
+                <table class="table table-bordered table-lg">
+                        <thead>
+                            <tr class="table-primary">
+                                <td scope="col">GUID</td>
+                                <td scope="col">Name</td>
+                                <td scope="col" >URL</td>
+                                <td scope="col">PROVIDER_GUID</td>
+                                <td scope="col">PARTNERSHIPID</td>
+                                <td scope="col">UPC_EAN</td>
+                                <td scope="col">HEIGTH</td>
+                                <td scope="col">LONG</td>
+                                <td scope="col">WIDTH</td>
+                                <td scope="col">WEIGHT</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for info in informacion %}
+                            <tr>
+                                <td scope="col">{{info.0}}</td>
+                                <td scope="col">{{info.1}}</td>
+                                <td scope="col"><a href={{info.2}} target="_blank" >{{info.2}}</a></td>
+                                <td scope="col">{{info.3}}</td>
+                                <td scope="col">{{info.4}}</td>
+                                <td scope="col">{{info.5}}</td>
+                                <td scope="col">{{info.6}}</td>
+                                <td scope="col">{{info.7}}</td>
+                                <td scope="col">{{info.8}}</td>
+                                <td scope="col">{{info.9}}</td>
+                            </tr>      
+                            {% endfor%}
+                        </tbody>    
+                </table>            
+            </div>           
+    </form>
+</div>
+{% endblock%}
